@@ -26,11 +26,17 @@
 
 <h2 align="center">Bibliotecas utilizadas</h2>
 
-[![NumPy](https://img.shields.io/badge/NumPy-%23013243?style=for-the-badge&logo=numpy)](https://numpy.org/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-%23FD8C00?style=for-the-badge&logo=opencv)](https://opencv.org/)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-%43FF6400?style=for-the-badge&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-%230F4B8A?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Rtree](https://img.shields.io/badge/Rtree-%23009E73?style=for-the-badge&logo=python&logoColor=white)](https://rtree.readthedocs.io/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Transformers](https://img.shields.io/badge/🤗_Transformers-FFD21E?style=for-the-badge&logoColor=black)](https://huggingface.co/docs/transformers)
+[![Ultralytics](https://img.shields.io/badge/Ultralytics_YOLO-00A3E0?style=for-the-badge&logo=yolo&logoColor=white)](https://ultralytics.com/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
+[![Tesseract](https://img.shields.io/badge/Tesseract_OCR-2B579A?style=for-the-badge&logo=python&logoColor=white)](https://github.com/tesseract-ocr/tesseract)
+[![EasyOCR](https://img.shields.io/badge/EasyOCR-FF6F61?style=for-the-badge&logo=python&logoColor=white)](https://github.com/JaidedAI/EasyOCR)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=python&logoColor=white)](https://matplotlib.org/)
+[![Pillow](https://img.shields.io/badge/Pillow-3C8D40?style=for-the-badge&logo=python&logoColor=white)](https://pillow.readthedocs.io/)
 
 ## Cómo usar
 ### Primer paso: clonar este repositorio
@@ -54,20 +60,22 @@ conda activate VC_P4
 ```
 
 ### Tercer paso: ejecutar el cuaderno
-Finalmente, abriendo nuestro IDE favorito y teniendo instalado todo lo necesario para poder ejecutar notebooks, se puede ejecutar el cuaderno de la práctica [Practica3.ipynb](Practica3.ipynb) seleccionando el environment anteriormente creado.
+Finalmente, abriendo nuestro IDE favorito y teniendo instalado todo lo necesario para poder ejecutar notebooks, se puede ejecutar los cuadernos de la práctica [Practica_4.ipynb](P4/practica_4.ipynb) y [Practica_4b.ipynb](P4/practica_4b.ipynb) seleccionando el environment anteriormente creado.
 
 > [!IMPORTANT]
 > Todos los bloques de código deben ejecutarse en orden, de lo contrario, podría ocasionar problemas durante la ejecución del cuaderno.
 
 <h1 align="center">Tareas Práctica 4</h1>
 
+Acceda al siguiente enlace para ver la implementación: [Practica_4.ipynb](P4/practica_4.ipynb)
+
 <h2 align="center">Detección y conteo de personas y vehículos</h2>
 
 Para esta parte de la práctica, se ha realizado la detección de las personas y vehículos en el vídeo proporcionado para tal haciendo uso del modelo YOLO nano. Además, se ha entrenado este modelo para que pueda detectar matrículas, siendo posteriormente leídas por algún procesador de texto como puede ser Pytesseract y SmolVLM en este caso.
 
-Por otro lado, se ha usado un dataset de cosecha propia y en colaboración con otros compañeros de la asignatura para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/javier_castilla101_alu_ulpgc_es/EklVrCWbPCVKpoXbImvYWIwBm1HPPRCzuYsJKcC7jKnT3Q?e=LGbZZP).
+Por otro lado, se ha usado un dataset de cosecha propia y en colaboración con otros compañeros de la asignatura para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive del dataset](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/asmae_ez101_alu_ulpgc_es/Ek2-fbNk8aRNpZSvSVzkzyEBWOMvUt-M77A7Iz2TqO9N-w?e=7fcMNe).
 
-Para etiquetar las imgánes del dataset, se ha usado la herramienta en la nube [makesense.ai](makesense.ai). Finalmente, se han dispuesto las imágenes y las etiquetas siguiendo la siguiente estructura de carpetas:
+Para etiquetar las imgánes del dataset, se ha usado las herramientas [makesense.ai](makesense.ai) y [LabelIMG](https://github.com/HumanSignal/labelImg). Finalmente, se han dispuesto las imágenes y las etiquetas siguiendo la siguiente estructura de carpetas:
 - dataset
   - train
     - images
@@ -152,6 +160,8 @@ A continuación, se muestran partes de los vídeos generados con las lecturas de
 
 <div style="text-align: center;" align="center"> <img src="salida_detecciones_easyocr.gif"> </div>
 
+Puede ver el video completo en [carpeta de OneDrive imágenes recortadas](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/asmae_ez101_alu_ulpgc_es/Ek2-fbNk8aRNpZSvSVzkzyEBWOMvUt-M77A7Iz2TqO9N-w?e=7fcMNe).
+
 <h3 align="center">Fragmento usando SmolVLM</h3> 
 
 <div style="text-align: center;" align="center"> <img src="salida_detecciones_smolvlm.gif"> </div>
@@ -218,6 +228,8 @@ A continuación, se muestra un fragmento del vídeo resultado:
 
 <h1 align="center">Tareas Práctica 4b</h1>
 
+Acceda al siguiente enlace para ver la implementación: [Practica_4b.ipynb](P4/practica_4b.ipynb)
+
 Se realiza una comparación del rendimiento de diferentes métodos de reconocimiento óptico de caracteres.
 
 1. Tesseract OCR - Motor OCR de código abierto desarrollado por Google.
@@ -228,6 +240,8 @@ Se realiza una comparación del rendimiento de diferentes métodos de reconocimi
 Primero con un script de python y usando nuestro  modelo YOLO pre-entrenado se recorre el dataset y se detecta las matrículas automáticamente para recortarlas y guardar solo la región de la matrícula.
 
 Cada imagen tiene como nombre los caracteres de su matrícula para usarlo más adelante para su verificación comparado con el resultado que nos alojan los modelos.
+
+Los resultados generados se pueden ver en: [carpeta de OneDrive imágenes recortadas](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/asmae_ez101_alu_ulpgc_es/Ek2-fbNk8aRNpZSvSVzkzyEBWOMvUt-M77A7Iz2TqO9N-w?e=7fcMNe).
 
 <h3 align="center">Comparativa</h3>
 
@@ -424,7 +438,4 @@ Alta tasa de error -> Levenshtein de 3.4 (errores significativos) y Solo 22.5% d
 <h1 align="center">Bibliografía</h3>
 
 - [Repositorio usado como base y enunciado de esta práctica](https://github.com/otsedom/otsedom.github.io/tree/main/VC/P4)
-
-- Documentación de los diferentes modelos y descargas
-
 
