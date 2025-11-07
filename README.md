@@ -160,11 +160,13 @@ A continuación, se muestran partes de los vídeos generados con las lecturas de
 
 <div style="text-align: center;" align="center"> <img src="salida_detecciones_easyocr.gif"> </div>
 
-Puede ver el video completo en [carpeta de OneDrive imágenes recortadas](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/asmae_ez101_alu_ulpgc_es/Ek2-fbNk8aRNpZSvSVzkzyEBWOMvUt-M77A7Iz2TqO9N-w?e=7fcMNe).
+Puede ver el video completo en [carpeta de OneDrive vídeo detección con EasyOCR](https://alumnosulpgc-my.sharepoint.com/:v:/g/personal/javier_castilla101_alu_ulpgc_es/ES0EvnescxxJnqSlCkS1UR8BS7L5zrbs7Uf7kq638M_x8w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=eZ7qhy).
 
 <h3 align="center">Fragmento usando SmolVLM</h3> 
 
 <div style="text-align: center;" align="center"> <img src="salida_detecciones_smolvlm.gif"> </div>
+
+Puede ver el video completo en [carpeta de OneDrive vídeo detección con SmolVLM](https://alumnosulpgc-my.sharepoint.com/:v:/g/personal/javier_castilla101_alu_ulpgc_es/EV7x1WAKupdEoSjhzoQcExIBa9SL1kZkDx3PJMim1vWenA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=5TGu6M).
 
 Como se puede osbervar en los fragmentos de vídeo mostrados, EasyOCR es pésimo haciendo la lectura de las matrículas, al igual que Pytesseract. Por otro lado, SmolVLM, aunque en algunos casos su lectura no era del todo correcta, funcionaba mucho mejor que los otros dos.
 
@@ -188,6 +190,8 @@ Se presenta un fragmento del vídeo resultante:
 <h3 align="center">Fragmento anonimizando personas y matrículas</h3> 
 
 <div style="text-align: center;" align="center"> <img src="salida_anonimacin_de_personas_y_matriculas.gif"> </div>
+
+Puede ver el video completo en [carpeta de OneDrive vídeo anonimación de personas y matrículas](https://alumnosulpgc-my.sharepoint.com/:v:/g/personal/javier_castilla101_alu_ulpgc_es/EdaI2aUFlOJNg9vx3m70GbgBiDrE0-4miyFG1TsQOHeCHw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=NYZCaj).
 
 En cuanto a la determinación del flujo, se ha definido un margen de varios píxeles en los bordes del vídeo para facilitar la detección de estos, pues se usan los boxes de detección de cada entidad para calcular hacia dónde se están moviendo y hacer el conteo de esta manera.
 
@@ -225,6 +229,11 @@ A continuación, se muestra un fragmento del vídeo resultado:
 <h3 align="center">Fragmento determinando el flujo direccional</h3> 
 
 <div style="text-align: center;" align="center"> <img src="salida_flujo_direccional.gif"> </div>
+
+Puede ver el video completo en [carpeta de OneDrive vídeo flujo direccional](https://alumnosulpgc-my.sharepoint.com/:v:/g/personal/javier_castilla101_alu_ulpgc_es/EbUWQnIclrtEszVI7eSD68sBDhrUS9RD2APlA5lwq_34Mg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=SdoZyi).
+
+> [!NOTE] 
+> Para ver todos los videos generados acceda a la siguiente [carpeta de OneDrive](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/javier_castilla101_alu_ulpgc_es/EklVrCWbPCVKpoXbImvYWIwBm1HPPRCzuYsJKcC7jKnT3Q?e=floR9a)
 
 <h1 align="center">Tareas Práctica 4b</h1>
 
