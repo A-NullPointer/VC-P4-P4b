@@ -47,7 +47,13 @@ git clone "https://github.com/A-NullPointer/VC-P5-P5"
 > [!NOTE]
 > Todas las dependencias pueden verse en [este archivo](environment.yml). Si se desea, puede crearse un entorno de Conda con dicho archivo.
 
-Si se opta por crear un nuevo `Conda environment` a partir del archivo expuesto, es necesario abrir el `Anaconda Prompt` y ejecutar lo siguiente:
+Este environment es si cuenta con **GPU**. Por ello necesita tener instalado CUDA. Para ello puede ejcutar el siguiente comando:
+
+```bash
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
+```
+
+Ahora sí se procede a la creación del entorno empleando el environment a partir del archivo expuesto, es necesario abrir el `Anaconda Prompt` y ejecutar lo siguiente:
 
 ```bash
 conda env create -f environment.yml
@@ -58,6 +64,7 @@ Posteriormente, se activa el entorno:
 ```bash
 conda activate VC_P4
 ```
+
 
 ### Tercer paso: ejecutar el cuaderno
 Finalmente, abriendo nuestro IDE favorito y teniendo instalado todo lo necesario para poder ejecutar notebooks, se puede ejecutar los cuadernos de la práctica [Practica_4.ipynb](P4/practica_4.ipynb) y [Practica_4b.ipynb](P4/practica_4b.ipynb) seleccionando el environment anteriormente creado.
@@ -447,4 +454,14 @@ Alta tasa de error -> Levenshtein de 3.4 (errores significativos) y Solo 22.5% d
 <h1 align="center">Bibliografía</h3>
 
 - [Repositorio usado como base y enunciado de esta práctica](https://github.com/otsedom/otsedom.github.io/tree/main/VC/P4)
+
+- [Ultralytics YOLO11n Documentation](https://docs.ultralytics.com/es/models/yolo11/#how-do-i-train-a-yolo11-model-for-object-detection)
+
+- [Tesseract OCR Documentation](https://tesseract-ocr.github.io/tessdoc/)
+
+- [EasyOCR Documentation](https://github.com/JaidedAI/EasyOCR)
+
+- [pytesseract Documentation](https://pypi.org/project/pytesseract/)
+
+- [Levenshtein Distance - Wikipedia](https://en.wikipedia.org/wiki/Levenshtein_distance)
 
