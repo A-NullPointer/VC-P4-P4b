@@ -5,7 +5,7 @@
        style="margin-bottom: 10px;">
 </div>
 
-<h1 align="center">Práctica 3</h1>
+<h1 align="center">Práctica 4</h1>
 
 <div align="center" style="font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin-top: 30px;">
   <h2 style="font-size: 28px; margin-bottom: 10px;">
@@ -65,11 +65,18 @@ Finalmente, abriendo nuestro IDE favorito y teniendo instalado todo lo necesario
 
 Para esta parte de la práctica, se ha realizado la detección de las personas y vehículos en el vídeo proporcionado para tal haciendo uso del modelo YOLO nano. Además, se ha entrenado este modelo para que pueda detectar matrículas, siendo posteriormente leídas por algún procesador de texto como puede ser Pytesseract y SmolVLM en este caso.
 
-Por otro lado, se ha usado un dataset de cosecha propia para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive]().
+Por otro lado, se ha usado un dataset de cosecha propia para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/javier_castilla101_alu_ulpgc_es/EklVrCWbPCVKpoXbImvYWIwBm1HPPRCzuYsJKcC7jKnT3Q?e=LGbZZP).
 
-Para etiquetar las imgánes del dataset, se ha usado la herramienta en la nube [makesense.ai](makesense.ai).
+Para etiquetar las imgánes del dataset, se ha usado la herramienta en la nube [makesense.ai](makesense.ai). Finalmente, se han dispuesto las imágenes y las etiquetas siguiendo la siguiente estructura de carpetas:
+- dataset
+  - train
+    - images
+    - labels
+  - val
+    - images
+    - labels
 
-Una vez el dataset ha sido creado y etiquetado, se propone el siguiente código paa realizar el entrenamiento usando YOLO:
+Una vez el dataset ha sido creado y etiquetado, se propone el siguiente código para realizar el entrenamiento usando YOLO:
 
 ```python
 
@@ -77,7 +84,7 @@ Una vez el dataset ha sido creado y etiquetado, se propone el siguiente código 
 
 A continuación, tras haber entrenado un modelo capaz de detectar matrículas, se dispone a la generación de un vídeo donde se detectarán personas y vehículos con sus respectivas matrículas a partir del vídeo proporcionado para esta práctica. En dicha generación, se mostrará además en tiempo real el conteo de cada clase detectada.
 
-El modo de proceder para detectar la matrícula ha sido detectar primero el vehículo, y a partir del recorte del fotograma donde se ha detectado, usar nuestro modelo entrenado para detectar la matrícula. De este modo, nos resulta algo más fácil la detección, a diferencia de si se tratase de detectar a partir de la totalidad del fotograma. Una vez detectada la matrícula, se le pasa  auna función que la procesa para conseguir su texto.
+El modo de proceder para detectar la matrícula ha sido detectar primero el vehículo, y a partir del recorte del fotograma donde se ha detectado, usar nuestro modelo entrenado para detectar la matrícula. De este modo, nos resulta algo más fácil la detección, a diferencia de si se tratase de detectar a partir de la totalidad del fotograma. Una vez detectada la matrícula, se le pasa a una función que la procesa para conseguir su texto con EasyOCR, PyTesseract o SmolVLM.
 
 Tras todo esto, los resultados son anotados en un archivo csv para cada fotograma acorde al siguiente formato:
 
@@ -102,14 +109,26 @@ Como se puede osbervar en los fragmentos de vídeo mostrados, EasyOCR es pésimo
 
 <h2 align="center">Parte 4: Extras</h2>
 
+En cuanto a los puntos extras, se han realizado dos de ellos; la anonimación de personas y el flujo de personas y vehículos.
+
+Para la anonimación de personas, el modo de proseguir con este punto ha sido el usar una función desarrollada que aplica un blur a la detección de la persona o vehículo. Para esto, simplemente se aplica la función `cv2.GaussianBlur`.
+
+Se presenta un fragmento del vídeo resultante:
+
+<h3 align="center">Fragmento anonimizando personas y matrículas</h3> 
+
+<div style="text-align: center;" align="center"> <img src="salida_anonimacin_de_personas_y_matriculas.gif"> </div>
+
+En cuanto a la determinación del flujo, se ha definido un margen de varios píxeles en los bordes del vídeo para facilitar la detección de estos, pues se usan los boxes de detección de cada entidad para calcular hacia dónde se están moviendo y hacer el conteo de esta manera.
+
+A continuación, se muestra un fragmento del vídeo resultado:
+
+<h3 align="center">Fragmento determinando el flujo direccional</h3> 
+
+<div style="text-align: center;" align="center"> <img src="salida_flujo_direccional.gif"> </div>
+
 <h2 align="center">Parte 4b</h2>
 
 <h3 align="center">Bibliografía</h3>
 
-- [Repositorio usado como base y enunciado de esta práctica](https://github.com/otsedom/otsedom.github.io/tree/main/VC/P3)
-- [Fit Ellipse de CV2](https://docs.opencv.org/4.x/de/d62/tutorial_bounding_rotated_ellipses.html)
-- [Circularidad](https://imagej.net/ij/plugins/circularity.html)
-- [Dilatación para tratar de cerrar bordes](https://pythongeeks.org/dilation-and-erosion-in-opencv/)
-- [Clasificador RandomForest basado en árboles de decisión](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
-- [RTree para optimización de búsquedas](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
-- [Estandarizador de valores](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
+- [Repositorio usado como base y enunciado de esta práctica](https://github.com/otsedom/otsedom.github.io/tree/main/VC/P4)
