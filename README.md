@@ -41,7 +41,7 @@
 ## Cómo usar
 ### Primer paso: clonar este repositorio
 ```bash
-git clone "https://github.com/A-NullPointer/VC-P5-P5"
+git clone "https://github.com/A-NullPointer/VC-P4-P5"
 ```
 ### Segundo paso: Activar tu environment e instalar dependencias
 > [!NOTE]
