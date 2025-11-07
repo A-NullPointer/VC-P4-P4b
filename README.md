@@ -65,7 +65,7 @@ Finalmente, abriendo nuestro IDE favorito y teniendo instalado todo lo necesario
 
 Para esta parte de la práctica, se ha realizado la detección de las personas y vehículos en el vídeo proporcionado para tal haciendo uso del modelo YOLO nano. Además, se ha entrenado este modelo para que pueda detectar matrículas, siendo posteriormente leídas por algún procesador de texto como puede ser Pytesseract y SmolVLM en este caso.
 
-Por otro lado, se ha usado un dataset de cosecha propia para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/javier_castilla101_alu_ulpgc_es/EklVrCWbPCVKpoXbImvYWIwBm1HPPRCzuYsJKcC7jKnT3Q?e=LGbZZP).
+Por otro lado, se ha usado un dataset de cosecha propia y en colaboración con otros compañeros de la asignatura para este entrenamiento, dicho dataset puede verse en la siguiente [carpeta de OneDrive](https://alumnosulpgc-my.sharepoint.com/:f:/g/personal/javier_castilla101_alu_ulpgc_es/EklVrCWbPCVKpoXbImvYWIwBm1HPPRCzuYsJKcC7jKnT3Q?e=LGbZZP).
 
 Para etiquetar las imgánes del dataset, se ha usado la herramienta en la nube [makesense.ai](makesense.ai). Finalmente, se han dispuesto las imágenes y las etiquetas siguiendo la siguiente estructura de carpetas:
 - dataset
@@ -385,8 +385,6 @@ Alta tasa de error -> Levenshtein de 3.4 (errores significativos) y Solo 22.5% d
 
 - [Repositorio usado como base y enunciado de esta práctica](https://github.com/otsedom/otsedom.github.io/tree/main/VC/P4)
 
-- Labelimg
-- La otra de labeling
 - Documentación de los diferentes modelos y descargas
 
 
