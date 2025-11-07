@@ -116,7 +116,7 @@ Tras el entrenamiento se obtienen los siguientes resultados:
 
 <h3 align="center">Matriz de Confusión Normalizada</h3> 
 
-<div style="text-align: center;" align="center"> <img src="/VC_P4&P5/P4/runs/detect/license_plate_augmented/val/confusion_matrix_normalized.png"> </div>
+<div style="text-align: center;" align="center"> <img src="P4/runs/detect/license_plate_augmented/val/confusion_matrix_normalized.png"> </div>
 
 La matriz de confusión muestra el rendimiento del modelo clasificando las detecciones:
 
@@ -124,7 +124,7 @@ De todas las matrículas reales en el dataset, el modelo detecta correctamente e
 
 <h3 align="center">Curva F1-Confidence</h3> 
 
-<div style="text-align: center;" align="center"> <img src="/VC_P4&P5/P4/runs/detect/license_plate_augmented/val/BoxF1_curve.png"> </div>
+<div style="text-align: center;" align="center"> <img src="P4/runs/detect/license_plate_augmented/val/BoxF1_curve.png"> </div>
 
 **Pico de rendimiento**: La curva alcanza su máximo (F1 ≈ 0.74) con un umbral de confianza de 0.623. Es el punto óptimo donde se maximiza el balance entre precisión y recal.
 
@@ -164,6 +164,15 @@ En cuanto a los puntos extras, se han realizado dos de ellos; la anonimación de
 
 Para la anonimación de personas, el modo de proseguir con este punto ha sido el usar una función desarrollada que aplica un blur a la detección de la persona o vehículo. Para esto, simplemente se aplica la función `cv2.GaussianBlur`.
 
+El código para anonimizar es el siguiente:
+
+```python
+def anonimize(frame, *box):
+    x1, y1,x2, y2 = box
+    frame_copy = frame[y1:y2, x1:x2].copy()
+    return cv2.GaussianBlur(frame_copy, (51,51), 15)
+```
+
 Se presenta un fragmento del vídeo resultante:
 
 <h3 align="center">Fragmento anonimizando personas y matrículas</h3> 
@@ -171,6 +180,35 @@ Se presenta un fragmento del vídeo resultante:
 <div style="text-align: center;" align="center"> <img src="salida_anonimacin_de_personas_y_matriculas.gif"> </div>
 
 En cuanto a la determinación del flujo, se ha definido un margen de varios píxeles en los bordes del vídeo para facilitar la detección de estos, pues se usan los boxes de detección de cada entidad para calcular hacia dónde se están moviendo y hacer el conteo de esta manera.
+
+Se muestra el fragmento de código que realiza estas detecciones:
+
+```python
+        if track_id not in tracks:
+            tracks[track_id] = {"tipo":tipo, "positions":deque(maxlen=10), "entered":False}
+        tracks[track_id]["positions"].append((cx,cy))
+
+        # Detectar si entra desde un borde
+        if not tracks[track_id]["entered"]:
+            if len(tracks[track_id]["positions"])>=min_frames_inside:
+                first_x,first_y = tracks[track_id]["positions"][0]
+                if first_x < margin: entry_counts[tipo]["izquierda"]+=1
+                elif first_x > width-margin: entry_counts[tipo]["derecha"]+=1
+                elif first_y < margin: entry_counts[tipo]["arriba"]+=1
+                elif first_y > height-margin: entry_counts[tipo]["abajo"]+=1
+                tracks[track_id]["entered"]=True
+
+    # Detectar salidas
+    for tid,data in list(tracks.items()):
+        if tid not in current_ids and len(data["positions"])>0:
+            cx,cy = data["positions"][-1]
+            tipo=data["tipo"]
+            if cx < margin: exit_counts[tipo]["izquierda"]+=1
+            elif cx > width-margin: exit_counts[tipo]["derecha"]+=1
+            elif cy < margin: exit_counts[tipo]["arriba"]+=1
+            elif cy > height-margin: exit_counts[tipo]["abajo"]+=1
+            del tracks[tid]
+```
 
 A continuación, se muestra un fragmento del vídeo resultado:
 
@@ -359,6 +397,7 @@ def compare_ocr_methods(self, images_dir, output_csv="ocr_comparison_results.csv
 
 A continuación se generan los resultados:
 
+<div align="center">
 | Métrica | Tesseract | SmolVLM | Ganador |
 |---------|-----------|---------|---------|
 | **Aciertos Exactos** | 12/87 (13.8%) | 53/87 (60.9%) | **SmolVLM** (+41) |
@@ -366,12 +405,13 @@ A continuación se generan los resultados:
 | **Tiempo Promedio** | 0.287s | 27.730s | **Tesseract** (96.8x) |
 | **Errores Levenshtein** | 3.4 | 0.9 | **SmolVLM** |
 | **Throughput** | 303.5 img/s | 3.1 img/s | **Tesseract** |
+<div>
 
 Y se visualizan en gráficas para mejor comprensión:
 
 <h3 align="center">Resultados de la comparación</h3> 
 
-<div style="text-align: center;" align="center"> <img src="/VC_P4&P5/04_comparacion_completa.png"> </div>
+<div style="text-align: center;" align="center"> <img src="04_comparacion_completa.png"> </div>
 
 #### **SmolVLM: Precisión Superior pero extremadamente lento**
 
